@@ -67,7 +67,45 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         controller: 'PlaylistCtrl'
       }
     }
-  });
+  })
+   .state('AddStudent',{
+    abstract:  false,
+    url:'/AddStudent',
+    templateUrl: 'templates/AddStudent.html'
+
+  })
+    .state('ViewStudent',{
+    abstract:  false,
+    url:'/ViewStudent',
+    templateUrl: 'templates/ViewStudent.html'
+
+  })
+   .state('signUp',{
+    abstract:  false,
+    url:'/signUp',
+    templateUrl: 'templates/signUp.html',
+    controller: 'SignUpCtrl'
+
+  })
+  .state('login',{
+    abstract:  false,
+    url:'/login',
+    templateUrl: 'templates/login.html',
+    controller: 'LoginCtrl'
+
+  })
+   .state('app.home',{
+    //abstract:  false,
+    url:'/home',
+  
+    views:{
+      'menuContent':{
+        templateUrl: 'templates/home.html'
+      }
+    }
+
+  })
+
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/login');
 });

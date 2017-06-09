@@ -13,23 +13,17 @@
   </ion-side-menu-content>
 
   <ion-side-menu side="left">
-    <ion-header-bar class="bar-stable">
-      <h1 class="title">Left</h1>
+    <ion-header-bar class="bar-stable ">
+      <h1 class="title positive">Menu</h1>
     </ion-header-bar>
-    <ion-content>
-      <ion-list>
-        <ion-item menu-close ng-click="login()">
-          Login
-        </ion-item>
-        <ion-item menu-close href="#/app/search">
-          Search
-        </ion-item>
-        <ion-item menu-close href="#/app/browse">
-          Browse
-        </ion-item>
-        <ion-item menu-close href="#/app/playlists">
-          Playlists
-        </ion-item>
+    <ion-content padding="false" class="side-menu-left has-header ">
+      <ion-list id="menu-list1">
+        <ion-item class="positive" id="menu-list-item1" ui-sref="menu.home()" menu-close="">Home</ion-item>
+        <ion-item class="positive" id="menu-list-item2" href-inappbrowser="page2">Assignment</ion-item>
+        <ion-item class="positive" id="menu-list-item3" href-inappbrowser="page3">ToDoList</ion-item>
+        <ion-item class="positive" id="menu-list-item4" href-inappbrowser="page3">My Subject</ion-item>
+        <ion-item class="positive" id="menu-list-item13" ui-sref="menu.addStudent()" menu-close="">Add Student</ion-item>
+        <ion-item class="positive" id="menu-list-item24" ui-sref="menu.viewStudent()" menu-close="">View Student</ion-item>
       </ion-list>
     </ion-content>
   </ion-side-menu>
