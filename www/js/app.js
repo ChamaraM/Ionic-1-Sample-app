@@ -77,7 +77,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     .state('ViewStudent',{
     abstract:  false,
     url:'/ViewStudent',
-    templateUrl: 'templates/ViewStudent.html'
+    templateUrl: 'templates/ViewStudent.html',
+    controller: 'viewStudentCtrl'    
 
   })
    .state('signUp',{
@@ -101,6 +102,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     views:{
       'menuContent':{
         templateUrl: 'templates/home.html'
+        
       }
     }
 

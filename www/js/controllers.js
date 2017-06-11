@@ -126,5 +126,79 @@ angular.module('starter.controllers', [])
     console.log('UserName: ' + loguserName + ' PAssword: ' + logpassword );
   }
 })
+.controller('AddStudentCtrl', function($scope, $http, $state, $rootScope){
+
+  $scope.loginData = {};
+
+  $scope.doLogin = function(){
+    var userName = $scope.loginData.name;
+    var password = $scope.loginData.password;
+    var year = $scope.loginData.year;
+    var fac = $scope.loginData.selectfac;
+    var tec =  $scope.loginData.teacher;
+    var email = $scope.loginData.email;
+
+   $http.post('http://localhost:3100/users', {
+
+   email : email,
+	password : password,
+	year : year,
+	faculty : fac,
+	UserName : userName,
+	tecOrStudent :tec
+
+    }).then(successCallBack, errorCallBack);
+
+    function successCallBack(resoponse){      
+      console.log("Login Success");
+      $rootScope.loggedInData = resoponse.data;
+      console.log(resoponse.data);
+      $state.go('login');
+
+    }
+
+    function errorCallBack(data){
+      console.log("falier callback");
+    }
+
+
+    console.log('UserName: ' + userName + ' PAssword: ' + password + 'UserName: ' + year + 'UserName: ' + tec);
+  }
+})
+
+.controller('viewStudentCtrl', function($scope, $http, $state, $rootScope){
+
+  $scope.users = {};
+
+ enableBack = true;
+   
+
+   $http.get('http://localhost:3100/users/').then(successCallBack, errorCallBack);
+
+    function successCallBack(resoponse){      
+     
+    console.log("adasdas");
+$scope.users = resoponse.data;
+    }
+
+    function errorCallBack(data){
+      console.log(data);
+      console.log("falier callback");
+    }
+
+
+  
+})
+/*
+.controller('Homecontrl', function($scope, $http, $rootScope){
+
+  $scope.users = [];
+
+        $http.get('https://localhost:3100/users')
+            .then(function (reponse) {
+              console.log("dadas");
+                $scope.users = reponse.data;
+            });
+})*/
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 });
