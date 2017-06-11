@@ -128,24 +128,26 @@ angular.module('starter.controllers', [])
 })
 .controller('AddStudentCtrl', function($scope, $http, $state, $rootScope){
 
-  $scope.loginData = {};
+  $scope.StudentData = {};
 
-  $scope.doLogin = function(){
-    var userName = $scope.loginData.name;
-    var password = $scope.loginData.password;
-    var year = $scope.loginData.year;
-    var fac = $scope.loginData.selectfac;
-    var tec =  $scope.loginData.teacher;
-    var email = $scope.loginData.email;
+  $scope.addStu = function(){
+    var userName = $scope.StudentData.name;
+    var RegNo = $scope.StudentData.RegNo;
+    var year = $scope.StudentData.year;
+    var fac = $scope.StudentData.Fac;
+    var Sem =  $scope.StudentData.sem;
+    var sex = $scope.StudentData.male;
 
-   $http.post('http://localhost:3100/users', {
+    
 
-   email : email,
-	password : password,
-	year : year,
+   $http.post('http://localhost:3100/student', {
+
+   StudentName : userName,
+	RegNumber : RegNo,
+	Sex : sex,
 	faculty : fac,
-	UserName : userName,
-	tecOrStudent :tec
+	semester : Sem,
+	year :year
 
     }).then(successCallBack, errorCallBack);
 
@@ -153,7 +155,7 @@ angular.module('starter.controllers', [])
       console.log("Login Success");
       $rootScope.loggedInData = resoponse.data;
       console.log(resoponse.data);
-      $state.go('login');
+      $state.go('app.home');
 
     }
 
@@ -162,7 +164,7 @@ angular.module('starter.controllers', [])
     }
 
 
-    console.log('UserName: ' + userName + ' PAssword: ' + password + 'UserName: ' + year + 'UserName: ' + tec);
+    console.log('UserName: ' + sex + ' PAssword: ' + userName + 'UserName: ' + RegNo + 'UserName: ' + year);
   }
 })
 

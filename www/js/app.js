@@ -71,8 +71,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
    .state('AddStudent',{
     abstract:  false,
     url:'/AddStudent',
-    templateUrl: 'templates/AddStudent.html'
-
+    templateUrl: 'templates/AddStudent.html',
+    controller: 'AddStudentCtrl'
   })
     .state('ViewStudent',{
     abstract:  false,

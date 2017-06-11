@@ -4,8 +4,8 @@
   <h1 class="title">Add Student</h1>
   
 </div>
-  <ion-content padding="true" class="has-header">
-    <form id="addStudent-form6" class="list">
+  <ion-content padding="true" class="has-header" ng-controller="AddStudentCtrl">
+    <form id="addStudent-form6" class="list" ng-submit="addStu()">
       <label class="item item-input" id="addStudent-input11">
         <span class="input-label">Student Name</span>
         <input type="text" ng-model="StudentData.name" placeholder="">
@@ -14,8 +14,15 @@
         <span class="input-label">Reg Number</span>
         <input type="text" ng-model="StudentData.RegNo" placeholder="">
       </label>
-      <ion-radio id="addStudent-radio6" ng-model="StudentData.male">Male</ion-radio>
-      <ion-radio id="addStudent-radio7 ng-model="StudentData.female"">Female</ion-radio>
+      <!--<ion-radio id="addStudent-radio6" ng-model="StudentData.male">Male</ion-radio>
+      <ion-radio id="addStudent-radio7" ng-model="StudentData.female">Female</ion-radio>-->
+      <label class="item item-select" id="addStudent-select6">
+        <span class="input-label">Sex</span>
+        <select ng-model="StudentData.male">
+          <option>Male</option>
+          <option>Female</option>
+        </select>
+      </label>
       <label class="item item-select" id="addStudent-select3">
         <span class="input-label">Faculty</span>
         <select ng-model="StudentData.Fac">
@@ -40,7 +47,8 @@
           <option>2nd Semester</option>
         </select>
       </label>
+      <button id="addStudent-button5" class="button button-positive button-block icon-left ion-android-add-circle" type="submit">Add</button>
     </form>
-    <button id="addStudent-button5" class="button button-positive button-block icon-left ion-android-add-circle">Add</button>
+    
   </ion-content>
 </ion-view>
